@@ -1,36 +1,10 @@
 <script setup>
-import { getApi } from 'es-fetch-api'
-
-const cloneNodes = (root, selector) => [ ...root.querySelectorAll(selector) ].map(el => {
-    const script = document.createElement(el.tagName);
-    [ ...el.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
-    return script
-})
-
-const loadAssets = html => {
-    const div = document.createElement('div')
-    div.innerHTML = html
-    document.body.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
-}
-
-const loadIndex = async ({ base }) => {
-    const api = getApi(base)
-    const response = await api('/index.html')
-    return await response.text()
-}
-
-const loadApp = async ({ base }) => {
-    const html = await loadIndex({ base })
-    loadAssets(html)
-}
-
-const loadSubApp2 = () => loadApp({ base: `${location.origin}/sub-app2` })
-loadSubApp2()
+import SubApp from "./components/SubApp.vue";
 </script>
 
 <template>
     <div id="sub-app1"></div>
-    <div id="sub-app2"></div>
+    <sub-app name="sub-app2" base="/sub-app2"/>
 </template>
 
 <style>
