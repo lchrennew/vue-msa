@@ -8,11 +8,18 @@ const loadSubApp2 = async () => {
     const div = document.createElement('div')
     div.innerHTML = html
     console.log(html);
-    document.body.append(...[ ...div.getElementsByTagName('script') ].map(s => {
-        const script = document.createElement(s.tagName);
-        [ ...s.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
-        return script
-    }))
+    document.body.append(
+        ...[ ...div.querySelectorAll('script') ].map(s => {
+            const script = document.createElement(s.tagName);
+            [ ...s.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
+            return script
+        }),
+        ...[ ...div.querySelectorAll('link[rel="stylesheet"]') ].map(s => {
+            const script = document.createElement(s.tagName);
+            [ ...s.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
+            return script
+        }),
+    )
     // document.body.append(...div.getElementsByTagName('script'))
 
 }
