@@ -4,7 +4,8 @@ import SubApp from "./components/SubApp.vue";
 
 <template>
     <div id="sub-app1"></div>
-    <sub-app name="sub-app2" base="/sub-app2"/>
+    <sub-app base="/sub-app1/" name="sub-app1"/>
+    <sub-app base="/sub-app2/" name="sub-app2"/>
 </template>
 
 <style>
