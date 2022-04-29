@@ -1,28 +1,30 @@
 <script setup>
 import { getApi } from 'es-fetch-api'
 
-const loadSubApp2 = async () => {
-    const api = getApi(`${location.origin}/sub-app2`)
-    const response = await api('/index.html')
-    const html = await response.text()
+const cloneNodes = (root, selector) => [ ...root.querySelectorAll(selector) ].map(el => {
+    const script = document.createElement(el.tagName);
+    [ ...el.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
+    return script
+})
+
+const loadAssets = html => {
     const div = document.createElement('div')
     div.innerHTML = html
-    console.log(html);
-    document.body.append(
-        ...[ ...div.querySelectorAll('script') ].map(s => {
-            const script = document.createElement(s.tagName);
-            [ ...s.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
-            return script
-        }),
-        ...[ ...div.querySelectorAll('link[rel="stylesheet"]') ].map(s => {
-            const script = document.createElement(s.tagName);
-            [ ...s.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
-            return script
-        }),
-    )
-    // document.body.append(...div.getElementsByTagName('script'))
-
+    document.body.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
 }
+
+const loadIndex = async ({ base }) => {
+    const api = getApi(base)
+    const response = await api('/index.html')
+    return await response.text()
+}
+
+const loadApp = async ({ base }) => {
+    const html = await loadIndex({ base })
+    loadAssets(html)
+}
+
+const loadSubApp2 = () => loadApp({ base: `${location.origin}/sub-app2` })
 loadSubApp2()
 </script>
 
