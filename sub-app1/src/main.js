@@ -3,6 +3,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Page1 from "./pages/Page1.vue";
 import Page2 from "./pages/Page2.vue";
+import routerBus from 'vue-msa-router-bus'
 
 const appName = `sub-app1`
 const appId = `#${appName}`
@@ -25,16 +26,9 @@ const router = createRouter({
     routes,
 })
 
-router.afterEach((to, from, failure) => {
-    if (!failure) {
-        const event = new Event('msa-route')
-        event.to = to
-        window.dispatchEvent(event)
-    }
-})
-window.addEventListener('msa-route', event => router.replace(event.to.href))
-const app = createApp(App)
+createApp(App)
     .use(router)
+    .use(routerBus)
     .mount(appId)
 
 

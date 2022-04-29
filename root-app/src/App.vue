@@ -20,5 +20,18 @@ import SubApp from "./components/SubApp.vue";
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    width: 300px;
+}
+a{
+    color: darkgray;
+    text-decoration: none;
+}
+a:hover{
+    color: deepskyblue;
+}
+
+div{
+    border: solid 1px #42b983;
+    margin: 1em;
 }
 </style>
