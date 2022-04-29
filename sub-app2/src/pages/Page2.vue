@@ -1,5 +1,5 @@
 <template>
-    root::Page2
+    sub-app2::Page2
 </template>
 
 <script>

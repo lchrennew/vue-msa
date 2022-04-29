@@ -31,11 +31,9 @@ router.afterEach((to, from, failure) => {
         window.dispatchEvent(event)
     }
 })
+window.addEventListener('msa-route', event => router.replace(event.to.href))
 
 const app = createApp(App)
     .use(router)
     .mount('#root-app')
-window.addEventListener('msa-route', event => {
-    console.log(event)
-})
 

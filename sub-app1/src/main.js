@@ -25,17 +25,16 @@ const router = createRouter({
     routes,
 })
 
-// router.afterEach((from, to, failure) => {
-//     if (!failure) {
-//         const event = new Event('route')
-//         document.querySelector(appId).dispatchEvent(event)
-//     }
-// })
-
+router.afterEach((to, from, failure) => {
+    if (!failure) {
+        const event = new Event('msa-route')
+        event.to = to
+        window.dispatchEvent(event)
+    }
+})
+window.addEventListener('msa-route', event => router.replace(event.to.href))
 const app = createApp(App)
     .use(router)
     .mount(appId)
 
-window.addEventListener('msa-route', event => {
-    router.replace(event.to.href)
-})
+
