@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import routerBus from 'vue-msa-router-bus'
+import subApp from 'vue-msa-sub-app'
 import Page1 from "./pages/Page1.vue";
 import Page2 from "./pages/Page2.vue";
 
@@ -19,5 +20,6 @@ const router = createRouter({
 createApp(App)
     .use(router)
     .use(routerBus)
+    .use(subApp)
     .mount('#root-app')
 

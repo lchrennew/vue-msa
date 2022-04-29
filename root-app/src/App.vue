@@ -1,5 +1,4 @@
 <script setup>
-import SubApp from "./components/SubApp.vue";
 </script>
 
 <template>

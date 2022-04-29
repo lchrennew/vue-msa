@@ -356,6 +356,11 @@ vue-msa-router-bus@^1.0.0:
   resolved "https://registry.yarnpkg.com/vue-msa-router-bus/-/vue-msa-router-bus-1.0.0.tgz#920ea5281d3f92189494fa287ddf8aa478be6ee9"
   integrity sha512-iXRqhIrqTI8wKQghwJPNkYHv1MZgUYtCdCUC8ucJLhkfdG7IjGYEm/LGLWl+eUQQITCnmunTEmRaLYKfjcgkdg==
 
+vue-msa-sub-app@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-msa-sub-app/-/vue-msa-sub-app-1.0.0.tgz#3904afc22fb7c99c4806151cd9e14b8aeb5f1759"
+  integrity sha512-LcJ2Tp4yTgj2gLbM6sFg+dIm/eBgkY90mLaTNU9XaVh02vTvVPP7c9SS/lTmNeOoZ+nd6dGjjXW4g/Ipjbz4DQ==
+
 vue-router@4:
   version "4.0.14"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.14.tgz#ce2028c1c5c33e30c7287950c973f397fce1bd65"

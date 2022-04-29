@@ -1,0 +1,8 @@
+{
+  "name": "vue-msa-sub-app",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Chun Li",
+  "license": "MIT",
+  "type": "module"
+}
