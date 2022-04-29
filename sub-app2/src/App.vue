@@ -1,6 +1,5 @@
-
 <template>
-    sub-app2
+    <router-view/>
 </template>
 
 <style>

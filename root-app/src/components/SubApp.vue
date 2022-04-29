@@ -1,12 +1,11 @@
 <script setup>
 import { onMounted } from "vue";
+import { getApi } from 'es-fetch-api'
 
 const props = defineProps({
     name: { type: String, required: true },
     base: { type: String, required: true }
 })
-
-import { getApi } from 'es-fetch-api'
 
 const cloneNodes = (root, selector) => [ ...root.querySelectorAll(selector) ].map(el => {
     const script = document.createElement(el.tagName);
@@ -36,12 +35,15 @@ const loadIndex = async ({ base }) => {
 
 const loadApp = ({ base }) => loadIndex({ base }).then(loadAssets)
 
-onMounted(() => loadApp(props))
+const nameDuplicated = document.getElementById(props.name)
+
+if (!nameDuplicated)
+    onMounted(() => loadApp(props))
 
 </script>
 
 <template>
-    <div :id="name"/>
+    <div :id="name" v-if="!nameDuplicated"/>
 </template>
 
 <style scoped>

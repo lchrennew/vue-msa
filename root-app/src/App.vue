@@ -3,9 +3,13 @@ import SubApp from "./components/SubApp.vue";
 </script>
 
 <template>
-    <div id="sub-app1"></div>
     <sub-app base="/sub-app1/" name="sub-app1"/>
     <sub-app base="/sub-app2/" name="sub-app2"/>
+    <p><router-link :to="{name: 'Page1'}">root::Page1 (via name)</router-link></p>
+    <p><router-link :to="{name: 'Page2'}">root::Page2 (via name)</router-link></p>
+    <p><router-link to="/">root::Page1 (via path)</router-link></p>
+    <p><router-link to="/2">root::Page2 (via path)</router-link></p>
+    <router-view/>
 </template>
 
 <style>
