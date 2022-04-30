@@ -11,7 +11,7 @@
     "es-fetch-api": "^1.0.27",
     "vue": "^3.2.33",
     "vue-msa-router-bus": "^1.0.0",
-    "vue-msa-sub-app": "^1.0.1",
+    "vue-msa-sub-app": "^1.0.5",
     "vue-router": "^4.0.14"
   },
   "devDependencies": {

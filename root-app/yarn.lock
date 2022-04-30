@@ -356,10 +356,10 @@ vue-msa-router-bus@^1.0.0:
   resolved "https://registry.yarnpkg.com/vue-msa-router-bus/-/vue-msa-router-bus-1.0.0.tgz#920ea5281d3f92189494fa287ddf8aa478be6ee9"
   integrity sha512-iXRqhIrqTI8wKQghwJPNkYHv1MZgUYtCdCUC8ucJLhkfdG7IjGYEm/LGLWl+eUQQITCnmunTEmRaLYKfjcgkdg==
 
-vue-msa-sub-app@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vue-msa-sub-app/-/vue-msa-sub-app-1.0.1.tgz#89212d2f94e5ea6071ba8d8dba622ffe6b65d140"
-  integrity sha512-RxNnZ+nG1JzdKG1/NiuGQqU+K1AQVZUdrFqXVhWFrdF9SYUpfVlgpvtMDLroysGY7jzaRHzl2NXiA+Uf6cH4wA==
+vue-msa-sub-app@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/vue-msa-sub-app/-/vue-msa-sub-app-1.0.5.tgz#5a5fa97101a52d61fc3481d615b2f4f6aac088e0"
+  integrity sha512-xjbdPN0eWP4W41KUZjhLR1QaWIMmjoz8K8+gCAXVqhPZhOWM1uIxI2AfXIUM56WlzcC3eA0r9RQ4VHgaNpZAWg==
   dependencies:
     es-fetch-api "^1.0.27"
     vue "^3.2.33"

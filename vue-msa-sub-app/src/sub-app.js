@@ -16,11 +16,13 @@ const loadAssets = (html, base) => {
     document.body.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
 }
 
+const removeStartSlash = href=>href.replace(/^\//, '')
+
 const normalizeUrl = (url, base = location.origin) => {
     try {
         return new URL(url).href
     } catch (error) {
-        return new URL(url, base).href
+        return new URL(removeStartSlash(url), normalizeUrl(base)).href
     }
 }
 
