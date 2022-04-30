@@ -13,7 +13,7 @@ const rebaseAssets = (html, base) =>
 const loadAssets = (html, base) => {
     const div = document.createElement('div')
     div.innerHTML = rebaseAssets(html, base)
-    document.body.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
+    document.head.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
 }
 
 const removeStartSlash = href=>href.replace(/^\//, '')
