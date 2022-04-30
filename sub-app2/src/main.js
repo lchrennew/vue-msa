@@ -3,7 +3,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Page1 from "./pages/Page1.vue";
 import Page2 from "./pages/Page2.vue";
-import routerBus from 'vue-msa-router-bus'
+import { createRouterBus } from 'vue-msa-router-bus'
 
 const appName = `sub-app2`
 const appId = `#${appName}`
@@ -25,6 +25,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
+
+const routerBus = createRouterBus()
 
 createApp(App)
     .use(router)

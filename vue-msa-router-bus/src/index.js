@@ -1,5 +1,5 @@
-export default {
-    install: (app, options) => {
+export const createRouterBus = options => ({
+    install: app => {
         const router = app.config.globalProperties.$router
         if (!router) throw 'You must use vue-router plugin first'
 
@@ -14,4 +14,4 @@ export default {
         })
         window.addEventListener(busName, event => router.replace(event.to.href))
     }
-}
+})

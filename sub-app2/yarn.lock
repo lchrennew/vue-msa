@@ -346,10 +346,10 @@ vite@^2.9.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-msa-router-bus@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue-msa-router-bus/-/vue-msa-router-bus-1.0.0.tgz#920ea5281d3f92189494fa287ddf8aa478be6ee9"
-  integrity sha512-iXRqhIrqTI8wKQghwJPNkYHv1MZgUYtCdCUC8ucJLhkfdG7IjGYEm/LGLWl+eUQQITCnmunTEmRaLYKfjcgkdg==
+vue-msa-router-bus@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-msa-router-bus/-/vue-msa-router-bus-1.0.1.tgz#0112388990eee37a500be0db8d2f7cd67edad2f4"
+  integrity sha512-AdHUNJcKJy81cb7VE8nD5nXfpkqWh86hAjtxt2VUiYsCFInki1+QPkY9qx5Kilp++VNkkJL1doygp3Dwcvyl9A==
 
 vue-router@^4.0.14:
   version "4.0.14"

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "vue": "^3.2.25",
-    "vue-msa-router-bus": "^1.0.0",
+    "vue-msa-router-bus": "^1.0.1",
     "vue-router": "4"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import routerBus from 'vue-msa-router-bus'
+import { createRouterBus } from 'vue-msa-router-bus'
 import subApp from 'vue-msa-sub-app'
 import Page1 from "./pages/Page1.vue";
 import Page2 from "./pages/Page2.vue";
@@ -16,6 +16,8 @@ const routes = [ {
 const router = createRouter({
     history: createWebHistory(), routes,
 })
+
+const routerBus = createRouterBus()
 
 createApp(App)
     .use(router)
