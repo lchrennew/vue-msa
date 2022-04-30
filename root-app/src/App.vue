@@ -3,7 +3,8 @@
 
 <template>
     <sub-app base="/sub-app1/" name="sub-app1"/>
-    <sub-app base="/sub-app2/" name="sub-app2"/>
+    <!-- MUST FIRSTLY start sub-app2: yarn dev-->
+    <sub-app base="http://localhost:3002/" name="sub-app2"/>
     <p><router-link :to="{name: 'Page1'}">root::Page1 (via name)</router-link></p>
     <p><router-link :to="{name: 'Page2'}">root::Page2 (via name)</router-link></p>
     <p><router-link to="/">root::Page1 (via path)</router-link></p>
