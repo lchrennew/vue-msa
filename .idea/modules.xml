@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/root-app/root-app.iml" filepath="$PROJECT_DIR$/root-app/root-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sub-app1/sub-app1.iml" filepath="$PROJECT_DIR$/sub-app1/sub-app1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sub-app2/sub-app2.iml" filepath="$PROJECT_DIR$/sub-app2/sub-app2.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue-msa.iml" filepath="$PROJECT_DIR$/vue-msa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vue-msa-router-bus/vue-msa-router-bus.iml" filepath="$PROJECT_DIR$/vue-msa-router-bus/vue-msa-router-bus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vue-msa-sub-app/vue-msa-sub-app.iml" filepath="$PROJECT_DIR$/vue-msa-sub-app/vue-msa-sub-app.iml" />
     </modules>
   </component>
 </project>
