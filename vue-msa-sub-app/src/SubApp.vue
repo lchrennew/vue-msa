@@ -8,22 +8,26 @@ const props = defineProps({
 })
 
 const cloneNodes = (root, selector) => [ ...root.querySelectorAll(selector) ].map(el => {
-    const script = document.createElement(el.tagName);
-    [ ...el.attributes ].forEach(attr => script.setAttribute(attr.name, attr.value))
-    return script
+    const node = document.createElement(el.tagName);
+    [ ...el.attributes ].forEach(attr => node.setAttribute(attr.name, attr.value))
+    return node
 })
 
-const loadAssets = html => {
+const rebaseAssets = (html, base) =>
+    html.replace(
+        /(?<= (?:src|href)=")([^"]+)(?=")/g, match => normalizeUrl(match, base))
+
+const loadAssets = (html, base) => {
     const div = document.createElement('div')
-    div.innerHTML = html
+    div.innerHTML = rebaseAssets(html, base)
     document.body.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
 }
 
-const normalizeUrl = url => {
+const normalizeUrl = (url, base = location.origin) => {
     try {
         return new URL(url).href
     } catch (error) {
-        return new URL(url, location.origin).href
+        return new URL(url, base).href
     }
 }
 
@@ -33,7 +37,7 @@ const loadIndex = async ({ base }) => {
     return await response.text()
 }
 
-const loadApp = ({ base }) => loadIndex({ base }).then(loadAssets)
+const loadApp = ({ base }) => loadIndex({ base }).then(html => loadAssets(html, base))
 
 const nameDuplicated = document.getElementById(props.name)
 
