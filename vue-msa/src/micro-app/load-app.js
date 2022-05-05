@@ -16,7 +16,7 @@ const loadAssets = (html, base) => {
     document.head.append(...cloneNodes(div, 'script, link[rel="stylesheet"]'))
 }
 
-const removeStartSlash = href=>href.replace(/^\//, '')
+const removeStartSlash = href => href.replace(/^\//, '')
 
 const normalizeUrl = (url, base = location.origin) => {
     try {
@@ -26,10 +26,10 @@ const normalizeUrl = (url, base = location.origin) => {
     }
 }
 
-const loadIndex = async ({ base }) => {
+const loadIndex = async ({ base, index = '/index.html' }) => {
     const api = getApi(normalizeUrl(base))
-    const response = await api('/index.html')
+    const response = await api(index)
     return await response.text()
 }
 
-export const loadApp = ({ base }) => loadIndex({ base }).then(html => loadAssets(html, base))
+export const loadApp = ({ base, index }) => loadIndex({ base, index }).then(html => loadAssets(html, base))

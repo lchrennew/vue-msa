@@ -5,7 +5,8 @@ import { loadApp } from "./sub-app.js";
 
 const props = defineProps({
     name: { type: String, required: true },
-    base: { type: String, required: true }
+    base: { type: String, required: true },
+    index: {type:String, default: '/index.html'}
 })
 
 const nameDuplicated = document.getElementById(props.name)
