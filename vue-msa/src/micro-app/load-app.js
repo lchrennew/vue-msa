@@ -32,4 +32,11 @@ const loadIndex = async ({ base, index = '/index.html' }) => {
     return await response.text()
 }
 
-export const loadApp = ({ base, index }) => loadIndex({ base, index }).then(html => loadAssets(html, base))
+export const loadApp = ({ id, base, index }) => {
+    const app = window.msaApps[id]
+    if (app) {
+        app.msaMount()
+        return
+    }
+    loadIndex({ base, index }).then(html => loadAssets(html, base))
+}

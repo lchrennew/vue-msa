@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Agent from "./agent.js";
 
 export default {
     install(app, options) {
         const { group = 'msa-route', id, createHistory = createWebHistory, routerOptions } = options
-
+        app.use(Agent, { id })
         const router = createRouter({
             ...routerOptions,
             history: createHistory(localStorage.getItem(`${id}.router-base`)),
