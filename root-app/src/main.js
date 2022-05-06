@@ -19,9 +19,10 @@ const router = createRouter({
 
 const routerBus = createRouterBus()
 
-createApp(App)
+const app = createApp(App)
     .use(router)
     .use(routerBus)
     .use(subApp)
-    .mount('#root-app')
-
+const comp = app.mount('#root-app')
+comp.$options.beforeUnmount
+console.log(comp)

@@ -1,19 +1,26 @@
 <script setup>
-import { onMounted } from "vue";
-import { loadApp } from "./sub-app.js";
+import { onBeforeUnmount, onMounted } from "vue";
+import { loadApp } from "./load-app.js";
 
 
 const props = defineProps({
-    name: { type: String, required: true },
+    id: { type: String, required: true },
     base: { type: String, required: true },
-    index: {type:String, default: '/index.html'}
+    routerBase: { type: String, default: '/' },
+    index: { type: String, default: '/index.html' }
 })
 
-const nameDuplicated = document.getElementById(props.name)
+const nameDuplicated = document.getElementById(props.id)
 
-if (!nameDuplicated)
+if (!nameDuplicated) {
+    localStorage.setItem(`${props.id}.router-base`, props.routerBase)
     onMounted(() => loadApp(props))
 
+    onBeforeUnmount(() => {
+        const event = new Event(`unmount:${props.id}`)
+        window.dispatchEvent(event)
+    })
+}
 </script>
 
 <template>

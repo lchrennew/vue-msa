@@ -3,6 +3,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Page1 from "./pages/Page1.vue";
 import Page2 from "./pages/Page2.vue";
+import Page3 from "./pages/Page3.vue";
 import { createRouterBus } from 'vue-msa-router-bus'
 
 const appName = `sub-app2`
@@ -18,7 +19,12 @@ const routes = [
         name: 'Page2',
         path: '/2',
         component: Page2
-    }
+    },
+    {
+        name: 'Page3',
+        path: '/3',
+        component: Page3
+    },
 ]
 
 const router = createRouter({
