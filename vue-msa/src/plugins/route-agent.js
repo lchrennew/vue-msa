@@ -1,8 +1,8 @@
-import { createRouter } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 export default {
     install(app, options) {
-        const { group = 'msa-route', id, createHistory, routerOptions } = options
+        const { group = 'msa-route', id, createHistory = createWebHistory, routerOptions } = options
 
         const router = createRouter({
             ...routerOptions,

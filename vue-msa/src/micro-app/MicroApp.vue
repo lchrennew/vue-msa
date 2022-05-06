@@ -24,7 +24,7 @@ if (!nameDuplicated) {
 </script>
 
 <template>
-    <div :id="name" v-if="!nameDuplicated"/>
+    <div :id="id" v-if="!nameDuplicated"/>
 </template>
 
 <style scoped>
