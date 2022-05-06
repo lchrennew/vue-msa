@@ -33,6 +33,7 @@ const loadIndex = async ({ base, index = '/index.html' }) => {
 }
 
 export const loadApp = ({ id, base, index }) => {
+    window.msaApps ??= {}
     const app = window.msaApps[id]
     if (app) {
         app.msaMount()
