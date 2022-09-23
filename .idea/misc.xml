@@ -6,9 +6,7 @@
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
-  <component name="SwUserDefinedSpecifications">
-    <option name="specTypeByUrl">
-      <map />
-    </option>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
   </component>
 </project>

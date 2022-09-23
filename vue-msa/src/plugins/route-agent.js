@@ -26,5 +26,10 @@ export default {
         window.addEventListener(`unmount:${id}`, () => window.removeEventListener(group, syncRoute), { once: true })
 
         app.use(router)
+
+        app.msaMount = async () => {
+            await router.isReady()
+            return app.mount(`#${id}`)
+        }
     }
 }
