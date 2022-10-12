@@ -19,17 +19,12 @@ export default {
             event.to = to
             window.dispatchEvent(event)
         })
-
-        const syncRoute = event => router.replace(event.to.href.substring(base.length))
+        const hashHistoryPrefix = '/#'
+        const syncRoute = event => router.replace(event.to.href.substring(base.startsWith(hashHistoryPrefix) ? base.length - 1 : base.length))
 
         window.addEventListener(group, syncRoute)
         window.addEventListener(`unmount:${id}`, () => window.removeEventListener(group, syncRoute), { once: true })
 
         app.use(router)
-
-        app.msaMount = async () => {
-            await router.isReady()
-            return app.mount(`#${id}`)
-        }
     }
 }
