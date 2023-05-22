@@ -3,7 +3,12 @@ import Agent from "./agent.js";
 
 export default {
     install(app, options) {
-        const { group = 'msa-route', id, createHistory = createWebHistory, routerOptions } = options
+        const {
+            group = 'msa-route',
+            id,
+            createHistory = createWebHistory,
+            routerOptions
+        } = options
         app.use(Agent, { id })
         const router = createRouter({
             ...routerOptions,
@@ -19,11 +24,18 @@ export default {
             event.to = to
             window.dispatchEvent(event)
         })
-        const hashHistoryPrefix = '/#'
-        const syncRoute = event => router.replace(event.to.href.substring(base.startsWith(hashHistoryPrefix) ? base.length - 1 : base.length))
+        const syncRoute = event => {
+            console.debug('[msa]to.href=', event.to.href)
+            router.replace(
+                createHistory.name === createWebHistory.name
+                    ? event.to.href.substring(base.length)
+                    : event.to.href.substring(1));
+        }
 
         window.addEventListener(group, syncRoute)
-        window.addEventListener(`unmount:${id}`, () => window.removeEventListener(group, syncRoute), { once: true })
+        window.addEventListener(
+            `unmount:${id}`,
+            () => window.removeEventListener(group, syncRoute), { once: true })
 
         app.use(router)
     }
